@@ -16,11 +16,11 @@ JournalApp.Views.PostsIndexView = Backbone.View.extend({
 	},
 	deletePost: function(event) {
 		event.preventDefault();
-
-		this.collection.get(this.$(".delete_post").attr("data-id"))
-				.destroy({success: function(model, response){
-					console.log("post deleted");
-		}});
+    this.collection.get($(event.currentTarget).attr("data-id"))
+       .destroy({
+         success: function(model, response){
+         }
+    });
 		return
 	}
 })

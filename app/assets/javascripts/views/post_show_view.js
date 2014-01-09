@@ -23,7 +23,6 @@ JournalApp.Views.PostShow = Backbone.View.extend({
 	update: function(event) {
 		var that = this;
 		var attrName = $(event.currentTarget).data("field");
-		console.log(attrName)
 		var value = $(event.currentTarget).val();
 		this.model.set(attrName, value);
 		this.model.save();

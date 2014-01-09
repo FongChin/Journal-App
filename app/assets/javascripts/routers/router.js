@@ -5,13 +5,9 @@ JournalApp.Routers.Router = Backbone.Router.extend({
 		"posts/:id": "show"
 	},
 	show: function(id) {
-		var post = new JournalApp.Models.Post({id: parseInt(id)})
-		post.fetch({
-			success: function(model, response, options) {
-				var postShow = new JournalApp.Views.PostShow({model: model});
-				$("#content").html(postShow.render().$el);
-			}
-		})
+		var post = JournalApp.postCollection.get(id);
+		var postShow = new JournalApp.Views.PostShow({model: post});
+		$("#content").html(postShow.render().$el);
 	},
 	new: function() {
 		var formView = new JournalApp.Views.PostForm({
